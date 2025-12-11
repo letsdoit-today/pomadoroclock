@@ -1,0 +1,132 @@
+{
+  "name": "pomodoro-clock",
+  "displayName": "Pomodoro Clock",
+  "description": "VS Code番茄时钟插件，帮助开发人员使用番茄工作法提高工作效率",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/pomodoro-clock"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "pomodoro-clock.start",
+        "title": "开始番茄",
+        "category": "番茄时钟"
+      },
+      {
+        "command": "pomodoro-clock.pause",
+        "title": "暂停番茄",
+        "category": "番茄时钟"
+      },
+      {
+        "command": "pomodoro-clock.resume",
+        "title": "继续番茄",
+        "category": "番茄时钟"
+      },
+      {
+        "command": "pomodoro-clock.cancel",
+        "title": "取消番茄",
+        "category": "番茄时钟"
+      },
+      {
+        "command": "pomodoro-clock.showPanel",
+        "title": "显示面板",
+        "category": "番茄时钟"
+      },
+      {
+        "command": "pomodoro-clock.showQuickPick",
+        "title": "番茄时钟菜单",
+        "category": "番茄时钟"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pomodoro-clock.toggle",
+        "key": "ctrl+shift+t",
+        "mac": "cmd+shift+t"
+      },
+      {
+        "command": "pomodoro-clock.cancel",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c"
+      }
+    ],
+    "menus": {
+      "commandpalette": [
+        {
+          "command": "pomodoro-clock.toggle"
+        },
+        {
+          "command": "pomodoro-clock.cancel"
+        },
+        {
+          "command": "pomodoro-clock.showPanel"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "番茄时钟",
+      "properties": {
+        "pomodoroClock.workDuration": {
+          "type": "number",
+          "default": 25,
+          "minimum": 10,
+          "maximum": 60,
+          "description": "工作时长（分钟）"
+        },
+        "pomodoroClock.shortBreakDuration": {
+          "type": "number",
+          "default": 5,
+          "minimum": 1,
+          "maximum": 15,
+          "description": "短休息时长（分钟）"
+        },
+        "pomodoroClock.longBreakDuration": {
+          "type": "number",
+          "default": 15,
+          "minimum": 5,
+          "maximum": 30,
+          "description": "长休息时长（分钟）"
+        },
+        "pomodoroClock.longBreakInterval": {
+          "type": "number",
+          "default": 4,
+          "minimum": 2,
+          "maximum": 8,
+          "description": "长休息触发间隔（连续番茄数）"
+        },
+        "pomodoroClock.enableSound": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用声音提醒"
+        },
+        "pomodoroClock.enableNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用系统通知"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}

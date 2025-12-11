@@ -1,11 +1,13 @@
 {
-  "name": "pomodoro-clock",
-  "displayName": "Pomodoro Clock",
+  "name": "letsdoit-pomodoro-clock",
+  "displayName": "番茄时钟",
   "description": "VS Code番茄时钟插件，帮助开发人员使用番茄工作法提高工作效率",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "publisher": "LetsdoIT",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/pomodoro-clock"
+    "url": "https://github.com/letsdoit-today/pomadoroclock"
   },
   "engines": {
     "vscode": "^1.80.0"
@@ -122,7 +124,8 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./"
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
   },
   "devDependencies": {
     "@types/vscode": "^1.80.0",
